@@ -1,3 +1,4 @@
+-- loads
 local Events = {}
 function Events._StartUp(v)
     pcall(function()
@@ -384,7 +385,7 @@ function move(target)
 	local dir = (target.Position - bin.Position).unit
 	local spawnPos = bin.Position
 	local pos = spawnPos + (dir * 1)
-	bin:findFirstChild("BodyGyro").cframe = CFrame.new(pos*CFrame.new(math.random(-16,16),pos.Y,math.random(-16,16)),  pos + dir)
+	bin:findFirstChild("BodyGyro").cframe = CFrame.new(CFrame.new(pos)*Vector3.new(math.random(-16,16),pos.Y,math.random(-16,16)).p,  pos + dir)
 	bin:findFirstChild("BodyGyro").maxTorque = Vector3.new(9000,9000,9000)
 end
 
