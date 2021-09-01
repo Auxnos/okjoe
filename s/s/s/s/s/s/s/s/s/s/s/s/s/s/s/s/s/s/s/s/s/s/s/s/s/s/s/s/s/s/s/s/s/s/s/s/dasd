@@ -1,3 +1,4 @@
+--hooho
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -228,25 +229,30 @@ end
 CharacterScripts(Character)
 Character.Parent = owner
 Character.Humanoid.Name = Rng:NextNumber(1,1000000)
-for _,v in pairs(Character:GetDescendants()) do 
-    if v:IsA("BasePart") == true and v.Name ~= "HumanoidRootPart" then 
-        task.spawn(function() 
-            for i = 1,#Enum.NormalId:GetEnumItems() do 
-                local texture = Instance.new("Texture",v) 
-                texture.Texture = "rbxassetid://2630737490" 
-                texture.StudsPerTileU = 4 
-                texture.OffsetStudsU = -0.3
-                texture.OffsetStudsV = -0.3
-                texture.StudsPerTileV = 4 
-                texture.Transparency = Rng:NextNumber(0.1,0.6) 
-                texture.Color3 = Color3.fromRGB() 
-                texture.Face = Enum.NormalId:GetEnumItems()[i] 
-            end 
-        end) 
-    end 
-end
 Character.Name = Rng:NextNumber(1,1000000)
 Character.HumanoidRootPart:Destroy()
+local ParticleEmitter__0 = Instance.new('ParticleEmitter',Character.Torso)
+ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0,1,0,0)
+ParticleEmitter__0.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0.000307574),Color3.fromRGB(0, 0, 1),Color3.fromRGB(0, 0, 0.00392157))
+ParticleEmitter__0.LightEmission = 0
+ParticleEmitter__0.LightInfluence = 0
+ParticleEmitter__0.Texture = 'rbxassetid://6883806180'
+ParticleEmitter__0.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+ParticleEmitter__0.ZOffset = 2
+ParticleEmitter__0.Transparency = NumberSequence.new(0,0,0,1,1,0)
+ParticleEmitter__0.Lifetime = NumberRange.new(3,3)
+ParticleEmitter__0.Rotation = NumberRange.new(-360,360)
+ParticleEmitter__0.RotSpeed = NumberRange.new(-25,25)
+ParticleEmitter__0.Speed = NumberRange.new(1,10)
+ParticleEmitter__0.SpreadAngle = Vector2.new(-360,360)
+ParticleEmitter__0.Acceleration = Vector3.new(0,-1,0)
+ParticleEmitter__0.Drag = 5
+ParticleEmitter__0.LockedToPart = false
+ParticleEmitter__0.TimeScale = 1
+ParticleEmitter__0.VelocityInheritance = 0.5
+ParticleEmitter__0.Enabled = true
+ParticleEmitter__0.Rate = NumberRange.new(1)
+ParticleEmitter__0.Parent = Character.Torso
 wait(1)
 for _,v in pairs(Character:GetDescendants()) do
     if v:IsA("Decal") then
@@ -321,7 +327,7 @@ local RightArm = CFrame.new(1.5,0,0)
 local LeftArm = CFrame.new(-1.5,0,0)
 local RightLeg = CFrame.new(.5,-2,0)
 local LeftLeg = CFrame.new(-.5,-2,0)
-song = Instance.new("Sound",script)
+song = Instance.new("Sound",owner)
 timepos = 0
 function MainLoop(step)
     pcall(function()
@@ -334,19 +340,25 @@ function MainLoop(step)
         song.Looped = true
         song.Playing = true
         song.Volume = 1.5
-        song.SoundId = "rbxassetid://2371543268"
+        if not rbg then
+            song.SoundId = "rbxassetid://6810954667"
+            song.PlaybackSpeed = 0.623
+        else
+            song.SoundId = "rbxassetid://2371543268"
+            song.PlaybackSpeed = 1+0.5*math.sin(sine/45)
+        end
     end)
-    if not succ then
-        warn(msg)
-        --game:GetService("Debris"):AddItem(song,0)
-        --song = Instance.new("Sound")
-        --song.Parent = Char:FindFirstChild("Head")
-        --song.Name = math.random()
-        --song.SoundId = "rbxassetid://2371543268"
-        --song.TimePosition = timepos
-        --song.Looped = true
-        --song.Playing = true
-        --song.Volume = 1.5
+    if not song or not succ then
+        --warn(msg)
+        game:GetService("Debris"):AddItem(song,0)
+        song = Instance.new("Sound")
+        song.Parent = Char:FindFirstChild("Head")
+        song.Name = math.random()
+        song.SoundId = "rbxassetid://2371543268"
+        song.TimePosition = timepos
+        song.Looped = true
+        song.Playing = true
+        song.Volume = 1.5
     end
     if not Flying then
             if not rbg then
@@ -358,17 +370,17 @@ function MainLoop(step)
                 LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+2*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-3*math.sin(sine/32)),0,0),0.2)
             else
                 Head = Head:Lerp(CFrame.new(0,1.5,0),0.2)
-                Torso = Torso:Lerp(CFrame.Angles(math.rad(360*math.sin(sine/32)),0,0),0.2)
-                RightArm = RightArm:Lerp(CFrame.new(1.5,-0.2,-0.1)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0),0.2)
-                LeftArm = LeftArm:Lerp(CFrame.new(-1.5,-0.2,-0.1)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0),0.2)
-                RightLeg = RightLeg:Lerp(CFrame.new(.5,-2,0)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),0,0),0.2)
-                LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),0,0),0.2)
+            Torso = Torso:Lerp(CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            RightArm = RightArm:Lerp(CFrame.new(1.5,-0.2,-0.1)*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(6-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            LeftArm = LeftArm:Lerp(CFrame.new(-1.5,-0.2,-0.1)*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(-6+360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            RightLeg = RightLeg:Lerp(CFrame.new(.5,-2,0)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
             end
     else
         if not Moving then
            Head = Head:Lerp(CFrame.new(0,1.5,0),0.2)
             Torso = Torso:Lerp(CFrame.new(-3*math.cos(sine/32),3*math.sin(sine/32),-4*math.sin(sine/24)),0.2)
-            RightArm = RightArm:Lerp(CFrame.new(.5,-0.2,-0.5)*CFrame.Angles(0,0,math.rad(-45)),0.2)
+            RightArm = RightArm:Lerp(CFrame.new(.5,-0.2,0.5)*CFrame.Angles(0,0,math.rad(-45)),0.2)
            LeftArm = LeftArm:Lerp(CFrame.new(-.5,-0.4,-0.4)*CFrame.Angles(math.rad(70),0,math.rad(-89)),0.2)
            RightLeg = RightLeg:Lerp(CFrame.new(.5,-1.75,-0.2)*CFrame.Angles(math.rad(-20-12*math.sin(sine/32)),math.rad(6-2*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-3*math.sin(sine/32)),0,0),0.2)
             LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+2*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-3*math.sin(sine/32)),0,0),0.2)
@@ -403,7 +415,6 @@ function MainLoop(step)
                         v.Reflectance = Rng:NextNumber(0.5,1)
                         v.Material = "ForceField"
                     end
-                    v:ClearAllChildren()
                     if v.Transparency ~= 0 then
                         SetCharacter()
                     end
@@ -416,6 +427,8 @@ function MainLoop(step)
             elseif v:IsA("BodyColors") then
                 v:Destroy()
             elseif v:IsA("Shirt") or v:IsA("Pants") then
+                v:Destroy()
+            elseif v:IsA("SpecialMesh") then
                 v:Destroy()
             end
         end
