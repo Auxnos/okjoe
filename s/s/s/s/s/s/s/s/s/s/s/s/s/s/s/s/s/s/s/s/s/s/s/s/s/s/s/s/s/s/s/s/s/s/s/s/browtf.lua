@@ -1,4 +1,4 @@
--- sihasd
+-- howowoow
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -244,7 +244,7 @@ ParticleEmitter__0.Lifetime = NumberRange.new(3,3)
 ParticleEmitter__0.Rotation = NumberRange.new(-360,360)
 ParticleEmitter__0.RotSpeed = NumberRange.new(-25,25)
 ParticleEmitter__0.Speed = NumberRange.new(1,10)
-ParticleEmitter__0.SpreadAngle = Vector2.new(-360,,36)
+ParticleEmitter__0.SpreadAngle = Vector2.new(-360,360)
 ParticleEmitter__0.Acceleration = Vector3.new(0,-1,0)
 ParticleEmitter__0.Drag = 5
 ParticleEmitter__0.LockedToPart = false
