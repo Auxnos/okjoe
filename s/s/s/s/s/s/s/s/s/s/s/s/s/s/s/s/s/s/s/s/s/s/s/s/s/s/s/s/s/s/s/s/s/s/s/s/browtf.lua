@@ -1,3 +1,4 @@
+-- load3
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -321,23 +322,31 @@ local RightArm = CFrame.new(1.5,0,0)
 local LeftArm = CFrame.new(-1.5,0,0)
 local RightLeg = CFrame.new(.5,-2,0)
 local LeftLeg = CFrame.new(-.5,-2,0)
-song = Instance.new("Sound",script)
+song = Instance.new("Sound",owner)
 timepos = 0
 function MainLoop(step)
     pcall(function()
         timepos = song.TimePosition
     end)
-    if not song or not pcall(function()
-            if Char then
-                song.Parent = Char:FindFirstChild("Head")
-            end
-            song.Looped = true
-            song.Playing = true
-            song.Volume = 1.5
+    local succ,msg = pcall(function()
+        if Char then
+            song.Parent = Char:FindFirstChild("Head")
+        end
+        song.Looped = true
+        song.Playing = true
+        song.Volume = 1.5
+        if rbg then
+            song.SoundId = "rbxassetid://6810954667"
+            song.PlaybackSpeed = 0.623
+        else
             song.SoundId = "rbxassetid://2371543268"
-        end) then
+            song.PlaybackSpeed = 1+0.5*math.sin(sine/45)
+        end
+    end)
+    if not song or not succ then
+        --warn(msg)
         game:GetService("Debris"):AddItem(song,0)
-        song = Instance.new("Sound",script)
+        song = Instance.new("Sound")
         song.Parent = Char:FindFirstChild("Head")
         song.Name = math.random()
         song.SoundId = "rbxassetid://2371543268"
@@ -401,7 +410,6 @@ function MainLoop(step)
                         v.Reflectance = Rng:NextNumber(0.5,1)
                         v.Material = "ForceField"
                     end
-                    v:ClearAllChildren()
                     if v.Transparency ~= 0 then
                         SetCharacter()
                     end
@@ -415,6 +423,8 @@ function MainLoop(step)
                 v:Destroy()
             elseif v:IsA("Shirt") or v:IsA("Pants") then
                 v:Destroy()
+            elseif v:IsA("SpecialMesh") then
+                
             end
         end
     end)
