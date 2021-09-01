@@ -1,4 +1,4 @@
---hoooo213
+---wthfffrare
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -232,7 +232,7 @@ Character.Humanoid.Name = Rng:NextNumber(1,1000000)
 Character.Name = Rng:NextNumber(1,1000000)
 Character.HumanoidRootPart:Destroy()
 local ParticleEmitter__0 = Instance.new('ParticleEmitter',Character.Torso)
-ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0,1,0,0)
+ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0.521,1,0.62,0.342,0.12681,0)
 ParticleEmitter__0.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0.000307574),Color3.fromRGB(0, 0, 1),Color3.fromRGB(0, 0, 0.00392157))
 ParticleEmitter__0.LightEmission = 0
 ParticleEmitter__0.LightInfluence = 0
