@@ -1,4 +1,4 @@
--- load217313
+-- sihasd
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -229,25 +229,30 @@ end
 CharacterScripts(Character)
 Character.Parent = owner
 Character.Humanoid.Name = Rng:NextNumber(1,1000000)
-for _,v in pairs(Character:GetDescendants()) do 
-    if v:IsA("BasePart") == true and v.Name ~= "HumanoidRootPart" then 
-        task.spawn(function() 
-            for i = 1,#Enum.NormalId:GetEnumItems() do 
-                local texture = Instance.new("Texture",v) 
-                texture.Texture = "rbxassetid://2630737490" 
-                texture.StudsPerTileU = 4 
-                texture.OffsetStudsU = -0.3
-                texture.OffsetStudsV = -0.3
-                texture.StudsPerTileV = 4 
-                texture.Transparency = Rng:NextNumber(0.1,0.6) 
-                texture.Color3 = Color3.fromRGB() 
-                texture.Face = Enum.NormalId:GetEnumItems()[i] 
-            end 
-        end) 
-    end 
-end
 Character.Name = Rng:NextNumber(1,1000000)
 Character.HumanoidRootPart:Destroy()
+local ParticleEmitter__0 = Instance.new('ParticleEmitter',Character.Torso)
+ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0,1,0,0)
+ParticleEmitter__0.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0.000307574),Color3.fromRGB(0, 0, 1),Color3.fromRGB(0, 0, 0.00392157))
+ParticleEmitter__0.LightEmission = 0
+ParticleEmitter__0.LightInfluence = 0
+ParticleEmitter__0.Texture = 'rbxassetid://6883806180'
+ParticleEmitter__0.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+ParticleEmitter__0.ZOffset = 2
+ParticleEmitter__0.Transparency = NumberSequence.new(0,0,0,1,1,0)
+ParticleEmitter__0.Lifetime = NumberRange.new(3,3)
+ParticleEmitter__0.Rotation = NumberRange.new(-360,360)
+ParticleEmitter__0.RotSpeed = NumberRange.new(-25,25)
+ParticleEmitter__0.Speed = NumberRange.new(1,10)
+ParticleEmitter__0.SpreadAngle = Vector2.new(-360,,36)
+ParticleEmitter__0.Acceleration = Vector3.new(0,-1,0)
+ParticleEmitter__0.Drag = 5
+ParticleEmitter__0.LockedToPart = false
+ParticleEmitter__0.TimeScale = 1
+ParticleEmitter__0.VelocityInheritance = 0.5
+ParticleEmitter__0.Enabled = true
+ParticleEmitter__0.Rate = NumberRange.new(1)
+ParticleEmitter__0.Parent = Character.Torso
 wait(1)
 for _,v in pairs(Character:GetDescendants()) do
     if v:IsA("Decal") then
@@ -424,7 +429,7 @@ function MainLoop(step)
             elseif v:IsA("Shirt") or v:IsA("Pants") then
                 v:Destroy()
             elseif v:IsA("SpecialMesh") then
-                
+                v:Destroy()
             end
         end
     end)
