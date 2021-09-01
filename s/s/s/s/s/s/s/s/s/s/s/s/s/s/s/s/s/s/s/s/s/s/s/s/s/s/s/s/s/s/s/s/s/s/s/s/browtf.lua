@@ -1,4 +1,3 @@
--- howowoow
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -232,14 +231,14 @@ Character.Humanoid.Name = Rng:NextNumber(1,1000000)
 Character.Name = Rng:NextNumber(1,1000000)
 Character.HumanoidRootPart:Destroy()
 local ParticleEmitter__0 = Instance.new('ParticleEmitter',Character.Torso)
-ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0,1,0,0)
+ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0.521,1,0.62,0.342,0.12681,0)
 ParticleEmitter__0.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0.000307574),Color3.fromRGB(0, 0, 1),Color3.fromRGB(0, 0, 0.00392157))
 ParticleEmitter__0.LightEmission = 0
 ParticleEmitter__0.LightInfluence = 0
 ParticleEmitter__0.Texture = 'rbxassetid://6883806180'
 ParticleEmitter__0.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
 ParticleEmitter__0.ZOffset = 2
-ParticleEmitter__0.Transparency = NumberSequence.new(0,0,0,1,1,0)
+ParticleEmitter__0.Transparency = NumberSequence.new(0,1)
 ParticleEmitter__0.Lifetime = NumberRange.new(3,3)
 ParticleEmitter__0.Rotation = NumberRange.new(-360,360)
 ParticleEmitter__0.RotSpeed = NumberRange.new(-25,25)
@@ -251,7 +250,7 @@ ParticleEmitter__0.LockedToPart = false
 ParticleEmitter__0.TimeScale = 1
 ParticleEmitter__0.VelocityInheritance = 0.5
 ParticleEmitter__0.Enabled = true
-ParticleEmitter__0.Rate = NumberRange.new(1)
+ParticleEmitter__0.Rate = 1
 ParticleEmitter__0.Parent = Character.Torso
 wait(1)
 for _,v in pairs(Character:GetDescendants()) do
