@@ -1,4 +1,4 @@
--- load3
+-- load217313
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -335,7 +335,7 @@ function MainLoop(step)
         song.Looped = true
         song.Playing = true
         song.Volume = 1.5
-        if rbg then
+        if not rbg then
             song.SoundId = "rbxassetid://6810954667"
             song.PlaybackSpeed = 0.623
         else
@@ -365,17 +365,17 @@ function MainLoop(step)
                 LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+2*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-3*math.sin(sine/32)),0,0),0.2)
             else
                 Head = Head:Lerp(CFrame.new(0,1.5,0),0.2)
-                Torso = Torso:Lerp(CFrame.Angles(math.rad(360*math.sin(sine/32)),0,0),0.2)
-                RightArm = RightArm:Lerp(CFrame.new(1.5,-0.2,-0.1)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0),0.2)
-                LeftArm = LeftArm:Lerp(CFrame.new(-1.5,-0.2,-0.1)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0),0.2)
-                RightLeg = RightLeg:Lerp(CFrame.new(.5,-2,0)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),0,0),0.2)
-                LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),0,0),0.2)
+            Torso = Torso:Lerp(CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            RightArm = RightArm:Lerp(CFrame.new(1.5,-0.2,-0.1)*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(6-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            LeftArm = LeftArm:Lerp(CFrame.new(-1.5,-0.2,-0.1)*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(-6+360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            RightLeg = RightLeg:Lerp(CFrame.new(.5,-2,0)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
             end
     else
         if not Moving then
            Head = Head:Lerp(CFrame.new(0,1.5,0),0.2)
             Torso = Torso:Lerp(CFrame.new(-3*math.cos(sine/32),3*math.sin(sine/32),-4*math.sin(sine/24)),0.2)
-            RightArm = RightArm:Lerp(CFrame.new(.5,-0.2,-0.5)*CFrame.Angles(0,0,math.rad(-45)),0.2)
+            RightArm = RightArm:Lerp(CFrame.new(.5,-0.2,0.5)*CFrame.Angles(0,0,math.rad(-45)),0.2)
            LeftArm = LeftArm:Lerp(CFrame.new(-.5,-0.4,-0.4)*CFrame.Angles(math.rad(70),0,math.rad(-89)),0.2)
            RightLeg = RightLeg:Lerp(CFrame.new(.5,-1.75,-0.2)*CFrame.Angles(math.rad(-20-12*math.sin(sine/32)),math.rad(6-2*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-3*math.sin(sine/32)),0,0),0.2)
             LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+2*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-3*math.sin(sine/32)),0,0),0.2)
