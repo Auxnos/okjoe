@@ -1,4 +1,4 @@
----wthfffrare
+--imasdasd
 local Mainpos = CFrame.new(0,15,0)
 local Moving = false
 local Flying = false
@@ -231,28 +231,6 @@ Character.Parent = owner
 Character.Humanoid.Name = Rng:NextNumber(1,1000000)
 Character.Name = Rng:NextNumber(1,1000000)
 Character.HumanoidRootPart:Destroy()
-local ParticleEmitter__0 = Instance.new('ParticleEmitter',Character.Torso)
-ParticleEmitter__0.Size = NumberSequence.new(0,0.3125,0.521,1,0.62,0.342,0.12681,0)
-ParticleEmitter__0.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0.000307574),Color3.fromRGB(0, 0, 1),Color3.fromRGB(0, 0, 0.00392157))
-ParticleEmitter__0.LightEmission = 0
-ParticleEmitter__0.LightInfluence = 0
-ParticleEmitter__0.Texture = 'rbxassetid://6883806180'
-ParticleEmitter__0.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
-ParticleEmitter__0.ZOffset = 2
-ParticleEmitter__0.Transparency = NumberSequence.new(0,1)
-ParticleEmitter__0.Lifetime = NumberRange.new(3,3)
-ParticleEmitter__0.Rotation = NumberRange.new(-360,360)
-ParticleEmitter__0.RotSpeed = NumberRange.new(-25,25)
-ParticleEmitter__0.Speed = NumberRange.new(1,10)
-ParticleEmitter__0.SpreadAngle = Vector2.new(-360,360)
-ParticleEmitter__0.Acceleration = Vector3.new(0,-1,0)
-ParticleEmitter__0.Drag = 5
-ParticleEmitter__0.LockedToPart = false
-ParticleEmitter__0.TimeScale = 1
-ParticleEmitter__0.VelocityInheritance = 0.5
-ParticleEmitter__0.Enabled = true
-ParticleEmitter__0.Rate = 1
-ParticleEmitter__0.Parent = Character.Torso
 wait(1)
 for _,v in pairs(Character:GetDescendants()) do
     if v:IsA("Decal") then
@@ -371,8 +349,8 @@ function MainLoop(step)
             else
                 Head = Head:Lerp(CFrame.new(0,1.5,0),0.2)
             Torso = Torso:Lerp(CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
-            RightArm = RightArm:Lerp(CFrame.new(1.5,-0.2,-0.1)*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(6-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
-            LeftArm = LeftArm:Lerp(CFrame.new(-1.5,-0.2,-0.1)*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(-6+360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            RightArm = RightArm:Lerp(CFrame.new(1.5-10.60*math.cos(sine/32),-0.2-10.60*math.cos(sine/32),-0.1-10.60*math.cos(sine/32))*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(6-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
+            LeftArm = LeftArm:Lerp(CFrame.new(-1.5-10.60*math.cos(sine/32),-0.2-10.60*math.cos(sine/32),-0.1-10.60*math.cos(sine/32))*CFrame.Angles(math.rad(360*math.sin(sine/32)),math.rad(-6+360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
             RightLeg = RightLeg:Lerp(CFrame.new(.5,-2,0)*CFrame.Angles(0,math.rad(6-360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
             LeftLeg = LeftLeg:Lerp(CFrame.new(-.5,-2,0)*CFrame.Angles(0,math.rad(-6+360*math.sin(sine/32)),0)*CFrame.Angles(math.rad(-360*math.sin(sine/32)),math.rad(360*math.sin(sine/32)),math.rad(360*math.sin(sine/32))),0.2)
             end
