@@ -31,7 +31,9 @@ end
 if KeyDown("P") then
 owner.Mover:FireServer("Refit",true)
 end
+if KeyDown("W") or KeyDown("A") or KeyDown("S") or KeyDown("D") then
 CubeHolder.CFrame = CFrame.new(CubeHolder.CFrame.p,CubeHolder.CFrame.p+workspace.CurrentCamera.CFrame.LookVector)
+end
 for i,v in pairs(workspace.CubeHolder:GetChildren()) do
 if v:IsA("BasePart") == true then
 if v.Transparency == 1 then
